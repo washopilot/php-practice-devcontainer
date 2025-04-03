@@ -30,6 +30,7 @@
             "extensions": ["DEVSENSE.phptools-vscode"]
         }
     },
+    "forwardPorts": [8080, 8081, 3000, 3001],
     "postCreateCommand": "service apache2 start && npm install -g browser-sync",
     "remoteUser": "vscode"
 }
