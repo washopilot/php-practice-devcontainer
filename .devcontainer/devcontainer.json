@@ -1,0 +1,31 @@
+{
+    "name": "PHP Apache DevContainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true,
+            "installOhMyZshConfig": true,
+            "username": "vscode",
+            "userUid": "automatic",
+            "userGid": "automatic"
+        }
+    },
+    "runArgs": ["-v", "${localWorkspaceFolder}:/var/www/html", "-p", "8080:80"],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "php.executablePath": "/usr/local/bin/php",
+                "editor.formatOnSave": true
+            },
+            "extensions": ["DEVSENSE.phptools-vscode"]
+        }
+    },
+    "forwardPorts": [8080],
+    "postCreateCommand": "service apache2 start",
+    "remoteUser": "vscode"
+}
