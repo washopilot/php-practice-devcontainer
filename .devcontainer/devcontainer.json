@@ -15,7 +15,7 @@
             "userGid": "automatic"
         },
         "ghcr.io/devcontainers/features/node:1": {
-            "version": "18",
+            "version": "lts",
             "pnpmVersion": "none",
             "nvmVersion": "latest"
         }
@@ -30,7 +30,6 @@
             "extensions": ["DEVSENSE.phptools-vscode"]
         }
     },
-    "forwardPorts": [8080],
     "postCreateCommand": "service apache2 start && npm install -g browser-sync",
     "remoteUser": "vscode"
 }
