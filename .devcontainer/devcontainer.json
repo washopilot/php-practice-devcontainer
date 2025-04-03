@@ -7,12 +7,17 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true,
-            "configureZshAsDefaultShell": true,
             "installOhMyZsh": true,
             "installOhMyZshConfig": true,
+            "upgradePackages": true,
             "username": "vscode",
             "userUid": "automatic",
             "userGid": "automatic"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "18",
+            "pnpmVersion": "none",
+            "nvmVersion": "latest"
         }
     },
     "runArgs": ["-v", "${localWorkspaceFolder}:/var/www/html", "-p", "8080:80"],
@@ -26,6 +31,6 @@
         }
     },
     "forwardPorts": [8080],
-    "postCreateCommand": "service apache2 start",
+    "postCreateCommand": "service apache2 start && npm install -g browser-sync",
     "remoteUser": "vscode"
 }
